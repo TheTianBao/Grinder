@@ -1,4 +1,6 @@
 ﻿
+Imports System.IO
+
 Public Class Grinder
     Public iRun As Integer
     Private Sub cmdStart_Click(sender As Object, e As EventArgs) Handles cmdStart.Click
@@ -23,6 +25,13 @@ Public Class Grinder
         End If
 
         'Start
+        Try
+            AppActivate("Origin.exe")
+        Catch ex As Exception
+            MsgBox("Origin is not running.")
+            Exit Sub
+        End Try
+
         Me.lblStatus.ForeColor = Color.Green
         Me.lblStatus.Text = "Running"
         Me.lbAttackBar.Enabled = False
@@ -39,7 +48,6 @@ Public Class Grinder
                 iCountdown = iCountdown - 1
                 Me.tbRebuff.Text = iCountdown
                 If iCountdown = 0 Then
-                    'Me.CheckBoxWork.Checked = True
                 End If
             End If
             'Start Rebuff
@@ -234,5 +242,135 @@ Public Class Grinder
             Me.CheckBoxBuff8.Enabled = False
             Me.CheckBoxBuff9.Enabled = False
         End If
+    End Sub
+
+    Private Sub CMDLoad_Click(sender As Object, e As EventArgs) Handles CMDLoad.Click
+        Dim myStream As Stream = Nothing
+        Dim openFileDialog As New OpenFileDialog()
+
+        'openFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*"
+        openFileDialog.Filter = "Grinder config (*.grinder)|*.grinder|All files (*.*)|*.*"
+        openFileDialog.FilterIndex = 1
+        OpenFileDialog.RestoreDirectory = True
+
+        If OpenFileDialog.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            Try
+                myStream = openFileDialog.OpenFile()
+                If (myStream IsNot Nothing) Then
+                    Dim sr As New IO.StreamReader(myStream)
+
+
+
+                    While (Not sr.EndOfStream)
+
+
+                        'Basic Config
+                        cbRebuff.Checked = Convert.ToBoolean(sr.ReadLine)
+                        lbBuffBar.Text = sr.ReadLine
+                        lbAttackBar.Text = sr.ReadLine
+                        tbRebuff.Text = sr.ReadLine
+                        'Keys
+                        Me.CheckBox0.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox1.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox2.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox3.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox4.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox5.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox6.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox7.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox8.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBox9.Checked = Convert.ToBoolean(sr.ReadLine)
+                        'Buff
+                        Me.CheckBoxBuff0.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff1.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff2.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff3.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff4.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff5.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff6.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff7.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff8.Checked = Convert.ToBoolean(sr.ReadLine)
+                        Me.CheckBoxBuff9.Checked = Convert.ToBoolean(sr.ReadLine)
+
+                    End While
+
+                End If
+            Catch Ex As Exception
+                MessageBox.Show("Cannot read file from disk. Original error: " & Chr(10) & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open.
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
+        End If
+
+    End Sub
+
+    Private Sub CMDSave_Click(sender As Object, e As EventArgs) Handles CMDSave.Click
+        Dim myStream As Stream = Nothing
+        Dim sd As New SaveFileDialog 'declare save file dialog
+
+        'sd.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*"
+        sd.Filter = "Grinder config (*.grinder)|*.grinder|All files (*.*)|*.*"
+        sd.FilterIndex = 1
+        sd.RestoreDirectory = True
+
+        If sd.ShowDialog = System.Windows.Forms.DialogResult.OK Then 'check if save file dialog was close after selecting a path
+            Try
+                myStream = sd.OpenFile()
+
+                Using sw As New IO.StreamWriter(myStream)
+                    'Basic Config
+                    sw.WriteLine(String.Join(";", cbRebuff.Checked))
+                    sw.WriteLine(String.Join(";", lbBuffBar.Text))
+                    sw.WriteLine(String.Join(";", lbAttackBar.Text))
+                    sw.WriteLine(String.Join(";", tbRebuff.Text))
+                    'Keys
+                    sw.WriteLine(String.Join(";", Me.CheckBox0.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox1.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox2.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox3.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox4.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox5.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox6.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox7.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox8.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBox9.Checked))
+                    'Buff
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff0.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff1.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff2.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff3.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff4.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff5.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff6.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff7.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff8.Checked))
+                    sw.WriteLine(String.Join(";", Me.CheckBoxBuff9.Checked))
+                End Using
+            Catch Ex As Exception
+                MessageBox.Show("Cannot write file to disk. Original error: " & Chr(10) & Ex.Message)
+            Finally
+                ' Check this again, since we need to make sure we didn't throw an exception on open.
+                If (myStream IsNot Nothing) Then
+                    myStream.Close()
+                End If
+            End Try
+
+        End If
+
+    End Sub
+
+    Private Sub CMDPayPal_Click(sender As Object, e As EventArgs) Handles CMDPayPal.Click
+        Process.Start("https://www.paypal.com/pools/c/8lu4vqskG6")
+    End Sub
+    'Stop when focused
+    Private Sub Grinder_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+        cmdStop_Click(sender, e)
+    End Sub
+
+    Private Sub Grinder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -37,14 +37,14 @@ Partial Class Grinder
         Me.Label1 = New System.Windows.Forms.Label()
         Me.gbStatus = New System.Windows.Forms.GroupBox()
         Me.gbMenu = New System.Windows.Forms.GroupBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.CMDPayPal = New System.Windows.Forms.Button()
         Me.cmdStop = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.cmdStart = New System.Windows.Forms.Button()
         Me.TabControlKeysBuff = New System.Windows.Forms.TabControl()
         Me.tpsetup = New System.Windows.Forms.TabPage()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.CMDLoad = New System.Windows.Forms.Button()
+        Me.CMDSave = New System.Windows.Forms.Button()
         Me.cbRebuff = New System.Windows.Forms.CheckBox()
         Me.tbRebuff = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -298,7 +298,7 @@ Partial Class Grinder
         'gbMenu
         '
         Me.gbMenu.BackColor = System.Drawing.SystemColors.Control
-        Me.gbMenu.Controls.Add(Me.Button1)
+        Me.gbMenu.Controls.Add(Me.CMDPayPal)
         Me.gbMenu.Controls.Add(Me.cmdStop)
         Me.gbMenu.Controls.Add(Me.cmdExit)
         Me.gbMenu.Controls.Add(Me.Label1)
@@ -314,20 +314,20 @@ Partial Class Grinder
         Me.gbMenu.TabStop = False
         Me.gbMenu.Text = "Menu"
         '
-        'Button1
+        'CMDPayPal
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Image = Global.Grinder.My.Resources.Resources.DonatePayPal
-        Me.Button1.Location = New System.Drawing.Point(178, 24)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(50, 50)
-        Me.Button1.TabIndex = 13
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.CMDPayPal.BackColor = System.Drawing.Color.White
+        Me.CMDPayPal.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CMDPayPal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CMDPayPal.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDPayPal.ForeColor = System.Drawing.Color.Black
+        Me.CMDPayPal.Image = Global.Grinder.My.Resources.Resources.DonatePayPal
+        Me.CMDPayPal.Location = New System.Drawing.Point(178, 24)
+        Me.CMDPayPal.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CMDPayPal.Name = "CMDPayPal"
+        Me.CMDPayPal.Size = New System.Drawing.Size(50, 50)
+        Me.CMDPayPal.TabIndex = 13
+        Me.CMDPayPal.UseVisualStyleBackColor = False
         '
         'cmdStop
         '
@@ -389,8 +389,8 @@ Partial Class Grinder
         '
         'tpsetup
         '
-        Me.tpsetup.Controls.Add(Me.Button3)
-        Me.tpsetup.Controls.Add(Me.Button2)
+        Me.tpsetup.Controls.Add(Me.CMDLoad)
+        Me.tpsetup.Controls.Add(Me.CMDSave)
         Me.tpsetup.Controls.Add(Me.cbRebuff)
         Me.tpsetup.Controls.Add(Me.tbRebuff)
         Me.tpsetup.Controls.Add(Me.Label4)
@@ -405,35 +405,35 @@ Partial Class Grinder
         Me.tpsetup.Text = "Setup"
         Me.tpsetup.UseVisualStyleBackColor = True
         '
-        'Button3
+        'CMDLoad
         '
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Image = Global.Grinder.My.Resources.Resources.Load
-        Me.Button3.Location = New System.Drawing.Point(118, 21)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(50, 50)
-        Me.Button3.TabIndex = 24
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.CMDLoad.BackColor = System.Drawing.Color.White
+        Me.CMDLoad.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CMDLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CMDLoad.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDLoad.ForeColor = System.Drawing.Color.Black
+        Me.CMDLoad.Image = Global.Grinder.My.Resources.Resources.Load
+        Me.CMDLoad.Location = New System.Drawing.Point(118, 21)
+        Me.CMDLoad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CMDLoad.Name = "CMDLoad"
+        Me.CMDLoad.Size = New System.Drawing.Size(50, 50)
+        Me.CMDLoad.TabIndex = 24
+        Me.CMDLoad.UseVisualStyleBackColor = False
         '
-        'Button2
+        'CMDSave
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Image = Global.Grinder.My.Resources.Resources.Save
-        Me.Button2.Location = New System.Drawing.Point(174, 21)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(50, 50)
-        Me.Button2.TabIndex = 23
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.CMDSave.BackColor = System.Drawing.Color.White
+        Me.CMDSave.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CMDSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CMDSave.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDSave.ForeColor = System.Drawing.Color.Black
+        Me.CMDSave.Image = Global.Grinder.My.Resources.Resources.Save
+        Me.CMDSave.Location = New System.Drawing.Point(174, 21)
+        Me.CMDSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CMDSave.Name = "CMDSave"
+        Me.CMDSave.Size = New System.Drawing.Size(50, 50)
+        Me.CMDSave.TabIndex = 23
+        Me.CMDSave.UseVisualStyleBackColor = False
         '
         'cbRebuff
         '
@@ -827,7 +827,7 @@ Partial Class Grinder
     Friend WithEvents Label4 As Label
     Friend WithEvents cbRebuff As CheckBox
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents CMDPayPal As Button
+    Friend WithEvents CMDLoad As Button
+    Friend WithEvents CMDSave As Button
 End Class
