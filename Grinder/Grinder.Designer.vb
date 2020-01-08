@@ -22,6 +22,7 @@ Partial Class Grinder
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Grinder))
         Me.CheckBox0 = New System.Windows.Forms.CheckBox()
         Me.CheckBox9 = New System.Windows.Forms.CheckBox()
@@ -65,6 +66,11 @@ Partial Class Grinder
         Me.CheckBoxBuff5 = New System.Windows.Forms.CheckBox()
         Me.CheckBoxBuff1 = New System.Windows.Forms.CheckBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.CMS = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.About = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Config = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GitHub = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Donate = New System.Windows.Forms.ToolStripMenuItem()
         Me.gbStatus.SuspendLayout()
         Me.gbMenu.SuspendLayout()
         Me.TabControlKeysBuff.SuspendLayout()
@@ -72,6 +78,7 @@ Partial Class Grinder
         Me.tpKeys.SuspendLayout()
         Me.tpBuff.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CMS.SuspendLayout()
         Me.SuspendLayout()
         '
         'CheckBox0
@@ -748,6 +755,40 @@ Partial Class Grinder
         Me.PictureBox1.TabIndex = 19
         Me.PictureBox1.TabStop = False
         '
+        'CMS
+        '
+        Me.CMS.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.About, Me.Config, Me.GitHub, Me.Donate})
+        Me.CMS.Name = "CMS"
+        Me.CMS.Size = New System.Drawing.Size(181, 114)
+        '
+        'About
+        '
+        Me.About.Image = Global.Grinder.My.Resources.Resources.info
+        Me.About.Name = "About"
+        Me.About.Size = New System.Drawing.Size(180, 22)
+        Me.About.Text = "About Grinder"
+        '
+        'Config
+        '
+        Me.Config.Image = Global.Grinder.My.Resources.Resources.Config
+        Me.Config.Name = "Config"
+        Me.Config.Size = New System.Drawing.Size(180, 22)
+        Me.Config.Text = "Open Configuration"
+        '
+        'GitHub
+        '
+        Me.GitHub.Image = Global.Grinder.My.Resources.Resources.GitHub
+        Me.GitHub.Name = "GitHub"
+        Me.GitHub.Size = New System.Drawing.Size(180, 22)
+        Me.GitHub.Text = "GitHub"
+        '
+        'Donate
+        '
+        Me.Donate.Image = Global.Grinder.My.Resources.Resources.PayPal
+        Me.Donate.Name = "Donate"
+        Me.Donate.Size = New System.Drawing.Size(180, 22)
+        Me.Donate.Text = "Donate"
+        '
         'Grinder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
@@ -756,6 +797,7 @@ Partial Class Grinder
         Me.BackgroundImage = Global.Grinder.My.Resources.Resources.Grinder256x512
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(240, 473)
+        Me.ContextMenuStrip = Me.CMS
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.gbMenu)
         Me.Controls.Add(Me.gbStatus)
@@ -785,6 +827,7 @@ Partial Class Grinder
         Me.tpBuff.ResumeLayout(False)
         Me.tpBuff.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CMS.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -830,4 +873,9 @@ Partial Class Grinder
     Friend WithEvents CMDPayPal As Button
     Friend WithEvents CMDLoad As Button
     Friend WithEvents CMDSave As Button
+    Friend WithEvents CMS As ContextMenuStrip
+    Friend WithEvents About As ToolStripMenuItem
+    Friend WithEvents Config As ToolStripMenuItem
+    Friend WithEvents GitHub As ToolStripMenuItem
+    Friend WithEvents Donate As ToolStripMenuItem
 End Class

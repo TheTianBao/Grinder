@@ -54,6 +54,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Grinder.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>Off</OptionExplicit>
@@ -115,6 +116,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config.Designer.vb">
+      <DependentUpon>Config.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Config.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Grinder.Designer.vb">
       <DependentUpon>Grinder.vb</DependentUpon>
     </Compile>
@@ -144,6 +157,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Config.resx">
+      <DependentUpon>Config.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grinder.resx">
       <DependentUpon>Grinder.vb</DependentUpon>
     </EmbeddedResource>
@@ -189,12 +205,15 @@
   <ItemGroup>
     <Content Include="BasicTool.ico" />
     <Content Include="Grinder.ico" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\GitHub.png" />
+    <None Include="Resources\PayPal.png" />
+    <None Include="Resources\Config.png" />
     <None Include="Resources\DonatePayPal.png" />
     <None Include="Resources\Save.png" />
     <None Include="Resources\Load.png" />
     <None Include="Resources\Grinder_small.png" />
     <None Include="Resources\Grinder256.png" />
-    <None Include="Resources\guildmark.bmp" />
     <None Include="Resources\Grinder256x5123.png" />
     <None Include="Resources\Grinder256x5122.png" />
     <None Include="Resources\Grinder256x5121.png" />

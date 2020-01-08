@@ -26,10 +26,9 @@ Public Class Grinder
 
         'Start
         Try
-            AppActivate("Origin.exe")
+            AppActivate("Origin")
         Catch ex As Exception
-            MsgBox("Origin is not running.")
-            Exit Sub
+
         End Try
 
         Me.lblStatus.ForeColor = Color.Green
@@ -370,7 +369,25 @@ Public Class Grinder
         cmdStop_Click(sender, e)
     End Sub
 
-    Private Sub Grinder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub CMS_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles CMS.ItemClicked
+
+        If e.ClickedItem.Text = "About Grinder" Then
+            Dim oForm As New About
+            oForm.Show()
+        End If
+
+        If e.ClickedItem.Text = "Open Configuration" Then
+            Dim oForm As New Config
+            oForm.Show()
+        End If
+
+        If e.ClickedItem.Text = "GitHub" Then
+            Process.Start("https://github.com/TheTianBao/Grinder")
+        End If
+
+        If e.ClickedItem.Text = "Donate" Then
+            Process.Start("https://www.paypal.com/pools/c/8lu4vqskG6")
+        End If
 
     End Sub
 End Class
