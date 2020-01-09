@@ -113,6 +113,16 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Exit_Config() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Exit_Config", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property GitHub() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("GitHub", resourceCulture)
@@ -183,6 +193,26 @@ Namespace My.Resources
         '''<summary>
         '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property Load_Config() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Load_Config", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Load_Config25x25() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Load_Config25x25", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property PayPal() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("PayPal", resourceCulture)
@@ -196,6 +226,26 @@ Namespace My.Resources
         Friend ReadOnly Property Save() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Save", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Save_Config() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Save_Config", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Save_Config25x25() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Save_Config25x25", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

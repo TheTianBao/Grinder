@@ -205,6 +205,11 @@
   <ItemGroup>
     <Content Include="BasicTool.ico" />
     <Content Include="Grinder.ico" />
+    <None Include="Resources\Exit_Config.png" />
+    <None Include="Resources\Load_Config25x25.png" />
+    <None Include="Resources\Save_Config25x25.png" />
+    <None Include="Resources\Load_Config.png" />
+    <None Include="Resources\Save_Config.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\GitHub.png" />
     <None Include="Resources\PayPal.png" />

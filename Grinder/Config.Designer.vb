@@ -22,20 +22,21 @@ Partial Class Config
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Config))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CLBAttack = New System.Windows.Forms.CheckedListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.CheckedListBox1 = New System.Windows.Forms.CheckedListBox()
-        Me.CheckedListBox2 = New System.Windows.Forms.CheckedListBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
+        Me.CLBBuff = New System.Windows.Forms.CheckedListBox()
+        Me.TBAttackTime = New System.Windows.Forms.TextBox()
+        Me.TBBuffTime = New System.Windows.Forms.TextBox()
+        Me.LBLAttackTime = New System.Windows.Forms.Label()
+        Me.LBLBuffTime = New System.Windows.Forms.Label()
+        Me.LBLBuffbar = New System.Windows.Forms.Label()
+        Me.LBLAttackbar = New System.Windows.Forms.Label()
+        Me.CBBuffBar = New System.Windows.Forms.ComboBox()
+        Me.CBAttackBar = New System.Windows.Forms.ComboBox()
+        Me.LBLEnableRebuff = New System.Windows.Forms.Label()
+        Me.CBBuff = New System.Windows.Forms.ComboBox()
         Me.CMDLoad = New System.Windows.Forms.Button()
         Me.CMDSave = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
@@ -45,7 +46,7 @@ Partial Class Config
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.CheckedListBox1)
+        Me.GroupBox1.Controls.Add(Me.CLBAttack)
         Me.GroupBox1.Location = New System.Drawing.Point(15, 106)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(238, 182)
@@ -53,164 +54,170 @@ Partial Class Config
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Attack Keys"
         '
+        'CLBAttack
+        '
+        Me.CLBAttack.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CLBAttack.FormattingEnabled = True
+        Me.CLBAttack.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+        Me.CLBAttack.Location = New System.Drawing.Point(3, 16)
+        Me.CLBAttack.Name = "CLBAttack"
+        Me.CLBAttack.Size = New System.Drawing.Size(232, 163)
+        Me.CLBAttack.TabIndex = 0
+        '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.CheckedListBox2)
+        Me.GroupBox2.Controls.Add(Me.CLBBuff)
         Me.GroupBox2.Location = New System.Drawing.Point(259, 104)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(237, 184)
+        Me.GroupBox2.Size = New System.Drawing.Size(237, 181)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Buff Keys"
         '
-        'CheckedListBox1
+        'CLBBuff
         '
-        Me.CheckedListBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CheckedListBox1.FormattingEnabled = True
-        Me.CheckedListBox1.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
-        Me.CheckedListBox1.Location = New System.Drawing.Point(3, 16)
-        Me.CheckedListBox1.Name = "CheckedListBox1"
-        Me.CheckedListBox1.Size = New System.Drawing.Size(232, 163)
-        Me.CheckedListBox1.TabIndex = 0
+        Me.CLBBuff.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CLBBuff.FormattingEnabled = True
+        Me.CLBBuff.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+        Me.CLBBuff.Location = New System.Drawing.Point(3, 16)
+        Me.CLBBuff.Name = "CLBBuff"
+        Me.CLBBuff.Size = New System.Drawing.Size(231, 162)
+        Me.CLBBuff.TabIndex = 1
         '
-        'CheckedListBox2
+        'TBAttackTime
         '
-        Me.CheckedListBox2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CheckedListBox2.FormattingEnabled = True
-        Me.CheckedListBox2.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
-        Me.CheckedListBox2.Location = New System.Drawing.Point(3, 16)
-        Me.CheckedListBox2.Name = "CheckedListBox2"
-        Me.CheckedListBox2.Size = New System.Drawing.Size(231, 165)
-        Me.CheckedListBox2.TabIndex = 1
+        Me.TBAttackTime.Location = New System.Drawing.Point(153, 78)
+        Me.TBAttackTime.Name = "TBAttackTime"
+        Me.TBAttackTime.Size = New System.Drawing.Size(100, 20)
+        Me.TBAttackTime.TabIndex = 2
         '
-        'TextBox1
+        'TBBuffTime
         '
-        Me.TextBox1.Location = New System.Drawing.Point(153, 51)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.TBBuffTime.Enabled = False
+        Me.TBBuffTime.Location = New System.Drawing.Point(396, 78)
+        Me.TBBuffTime.Name = "TBBuffTime"
+        Me.TBBuffTime.Size = New System.Drawing.Size(100, 20)
+        Me.TBBuffTime.TabIndex = 3
         '
-        'TextBox2
+        'LBLAttackTime
         '
-        Me.TextBox2.Location = New System.Drawing.Point(396, 78)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 3
+        Me.LBLAttackTime.AutoSize = True
+        Me.LBLAttackTime.Location = New System.Drawing.Point(10, 81)
+        Me.LBLAttackTime.Name = "LBLAttackTime"
+        Me.LBLAttackTime.Size = New System.Drawing.Size(137, 13)
+        Me.LBLAttackTime.TabIndex = 4
+        Me.LBLAttackTime.Text = "Time between attacks (ms):"
         '
-        'Label1
+        'LBLBuffTime
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 54)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(137, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Time between attacks (ms):"
+        Me.LBLBuffTime.AutoSize = True
+        Me.LBLBuffTime.Location = New System.Drawing.Point(265, 81)
+        Me.LBLBuffTime.Name = "LBLBuffTime"
+        Me.LBLBuffTime.Size = New System.Drawing.Size(125, 13)
+        Me.LBLBuffTime.TabIndex = 5
+        Me.LBLBuffTime.Text = "Time between buffs (ms):"
         '
-        'Label2
+        'LBLBuffbar
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(265, 81)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 13)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Time between buffs (ms):"
+        Me.LBLBuffbar.AutoSize = True
+        Me.LBLBuffbar.Location = New System.Drawing.Point(346, 53)
+        Me.LBLBuffbar.Name = "LBLBuffbar"
+        Me.LBLBuffbar.Size = New System.Drawing.Size(44, 13)
+        Me.LBLBuffbar.TabIndex = 6
+        Me.LBLBuffbar.Text = "Buffbar:"
         '
-        'Label3
+        'LBLAttackbar
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(318, 54)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(72, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Used Buffbar:"
+        Me.LBLAttackbar.AutoSize = True
+        Me.LBLAttackbar.Location = New System.Drawing.Point(91, 53)
+        Me.LBLAttackbar.Name = "LBLAttackbar"
+        Me.LBLAttackbar.Size = New System.Drawing.Size(56, 13)
+        Me.LBLAttackbar.TabIndex = 7
+        Me.LBLAttackbar.Text = "Attackbar:"
         '
-        'Label4
+        'CBBuffBar
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(63, 25)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(84, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Used Attackbar:"
+        Me.CBBuffBar.Enabled = False
+        Me.CBBuffBar.FormattingEnabled = True
+        Me.CBBuffBar.Items.AddRange(New Object() {"F1", "F2", "F3", "F4"})
+        Me.CBBuffBar.Location = New System.Drawing.Point(396, 50)
+        Me.CBBuffBar.Name = "CBBuffBar"
+        Me.CBBuffBar.Size = New System.Drawing.Size(100, 21)
+        Me.CBBuffBar.TabIndex = 8
         '
-        'ComboBox1
+        'CBAttackBar
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"F1", "F2", "F3", "F4"})
-        Me.ComboBox1.Location = New System.Drawing.Point(396, 50)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox1.TabIndex = 8
+        Me.CBAttackBar.Enabled = False
+        Me.CBAttackBar.FormattingEnabled = True
+        Me.CBAttackBar.Items.AddRange(New Object() {"F1", "F2", "F3", "F4"})
+        Me.CBAttackBar.Location = New System.Drawing.Point(153, 50)
+        Me.CBAttackBar.Name = "CBAttackBar"
+        Me.CBAttackBar.Size = New System.Drawing.Size(100, 21)
+        Me.CBAttackBar.TabIndex = 9
         '
-        'ComboBox2
+        'LBLEnableRebuff
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"F1", "F2", "F3", "F4"})
-        Me.ComboBox2.Location = New System.Drawing.Point(153, 22)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox2.TabIndex = 9
+        Me.LBLEnableRebuff.AutoSize = True
+        Me.LBLEnableRebuff.Location = New System.Drawing.Point(69, 21)
+        Me.LBLEnableRebuff.Name = "LBLEnableRebuff"
+        Me.LBLEnableRebuff.Size = New System.Drawing.Size(78, 13)
+        Me.LBLEnableRebuff.TabIndex = 10
+        Me.LBLEnableRebuff.Text = "Enable Rebuff:"
         '
-        'Label5
+        'CBBuff
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(312, 25)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(78, 13)
-        Me.Label5.TabIndex = 10
-        Me.Label5.Text = "Enable Rebuff:"
-        '
-        'ComboBox3
-        '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"Yes", "No"})
-        Me.ComboBox3.Location = New System.Drawing.Point(396, 22)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(100, 21)
-        Me.ComboBox3.TabIndex = 11
+        Me.CBBuff.FormattingEnabled = True
+        Me.CBBuff.Items.AddRange(New Object() {"Yes", "No"})
+        Me.CBBuff.Location = New System.Drawing.Point(153, 18)
+        Me.CBBuff.Name = "CBBuff"
+        Me.CBBuff.Size = New System.Drawing.Size(100, 21)
+        Me.CBBuff.TabIndex = 11
         '
         'CMDLoad
         '
         Me.CMDLoad.BackColor = System.Drawing.Color.White
+        Me.CMDLoad.BackgroundImage = Global.Grinder.My.Resources.Resources.Load_Config
+        Me.CMDLoad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CMDLoad.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CMDLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CMDLoad.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDLoad.ForeColor = System.Drawing.Color.Black
-        Me.CMDLoad.Image = Global.Grinder.My.Resources.Resources.Load
-        Me.CMDLoad.Location = New System.Drawing.Point(144, 292)
+        Me.CMDLoad.Location = New System.Drawing.Point(409, 9)
         Me.CMDLoad.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CMDLoad.Name = "CMDLoad"
-        Me.CMDLoad.Size = New System.Drawing.Size(50, 50)
+        Me.CMDLoad.Size = New System.Drawing.Size(25, 25)
         Me.CMDLoad.TabIndex = 27
         Me.CMDLoad.UseVisualStyleBackColor = False
         '
         'CMDSave
         '
         Me.CMDSave.BackColor = System.Drawing.Color.White
+        Me.CMDSave.BackgroundImage = Global.Grinder.My.Resources.Resources.Save_Config
+        Me.CMDSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CMDSave.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CMDSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CMDSave.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CMDSave.ForeColor = System.Drawing.Color.Black
-        Me.CMDSave.Image = Global.Grinder.My.Resources.Resources.Save
-        Me.CMDSave.Location = New System.Drawing.Point(200, 292)
+        Me.CMDSave.Location = New System.Drawing.Point(440, 9)
         Me.CMDSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CMDSave.Name = "CMDSave"
-        Me.CMDSave.Size = New System.Drawing.Size(50, 50)
+        Me.CMDSave.Size = New System.Drawing.Size(25, 25)
         Me.CMDSave.TabIndex = 26
         Me.CMDSave.UseVisualStyleBackColor = False
         '
         'cmdExit
         '
         Me.cmdExit.BackColor = System.Drawing.Color.White
+        Me.cmdExit.BackgroundImage = Global.Grinder.My.Resources.Resources.Exit_Config
+        Me.cmdExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.cmdExit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cmdExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdExit.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdExit.ForeColor = System.Drawing.Color.Black
-        Me.cmdExit.Image = Global.Grinder.My.Resources.Resources.baseline_power_settings_new_black_18dp
-        Me.cmdExit.Location = New System.Drawing.Point(443, 292)
+        Me.cmdExit.Location = New System.Drawing.Point(471, 9)
         Me.cmdExit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.Size = New System.Drawing.Size(50, 50)
+        Me.cmdExit.Size = New System.Drawing.Size(25, 25)
         Me.cmdExit.TabIndex = 25
         Me.cmdExit.UseVisualStyleBackColor = False
         '
@@ -219,24 +226,28 @@ Partial Class Config
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(503, 351)
+        Me.ClientSize = New System.Drawing.Size(503, 292)
         Me.Controls.Add(Me.CMDLoad)
         Me.Controls.Add(Me.CMDSave)
         Me.Controls.Add(Me.cmdExit)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.CBBuff)
+        Me.Controls.Add(Me.CBBuffBar)
+        Me.Controls.Add(Me.LBLEnableRebuff)
+        Me.Controls.Add(Me.CBAttackBar)
+        Me.Controls.Add(Me.LBLAttackbar)
+        Me.Controls.Add(Me.LBLBuffbar)
+        Me.Controls.Add(Me.LBLBuffTime)
+        Me.Controls.Add(Me.LBLAttackTime)
+        Me.Controls.Add(Me.TBBuffTime)
+        Me.Controls.Add(Me.TBAttackTime)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Config"
-        Me.Text = "Config"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Grinder Configuration"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -245,19 +256,19 @@ Partial Class Config
     End Sub
 
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents CheckedListBox1 As CheckedListBox
+    Friend WithEvents CLBAttack As CheckedListBox
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents CheckedListBox2 As CheckedListBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents CLBBuff As CheckedListBox
+    Friend WithEvents TBAttackTime As TextBox
+    Friend WithEvents TBBuffTime As TextBox
+    Friend WithEvents LBLAttackTime As Label
+    Friend WithEvents LBLBuffTime As Label
+    Friend WithEvents LBLBuffbar As Label
+    Friend WithEvents LBLAttackbar As Label
+    Friend WithEvents CBBuffBar As ComboBox
+    Friend WithEvents CBAttackBar As ComboBox
+    Friend WithEvents LBLEnableRebuff As Label
+    Friend WithEvents CBBuff As ComboBox
     Friend WithEvents CMDLoad As Button
     Friend WithEvents CMDSave As Button
     Friend WithEvents cmdExit As Button

@@ -3,6 +3,7 @@ Imports System.IO
 
 Public Class Grinder
     Public iRun As Integer
+    Public FRMConfig As New Config
     Private Sub cmdStart_Click(sender As Object, e As EventArgs) Handles cmdStart.Click
 
         Dim iRebuffValue As Integer
@@ -377,8 +378,8 @@ Public Class Grinder
         End If
 
         If e.ClickedItem.Text = "Open Configuration" Then
-            Dim oForm As New Config
-            oForm.Show()
+
+            FRMConfig.ShowDialog()
         End If
 
         If e.ClickedItem.Text = "GitHub" Then
