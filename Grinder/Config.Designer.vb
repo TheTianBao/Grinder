@@ -164,7 +164,7 @@ Partial Class Config
         'LBLEnableRebuff
         '
         Me.LBLEnableRebuff.AutoSize = True
-        Me.LBLEnableRebuff.Location = New System.Drawing.Point(324, 52)
+        Me.LBLEnableRebuff.Location = New System.Drawing.Point(104, 51)
         Me.LBLEnableRebuff.Name = "LBLEnableRebuff"
         Me.LBLEnableRebuff.Size = New System.Drawing.Size(78, 13)
         Me.LBLEnableRebuff.TabIndex = 10
@@ -174,9 +174,9 @@ Partial Class Config
         '
         Me.CBBuff.FormattingEnabled = True
         Me.CBBuff.Items.AddRange(New Object() {"Yes", "No"})
-        Me.CBBuff.Location = New System.Drawing.Point(408, 48)
+        Me.CBBuff.Location = New System.Drawing.Point(188, 48)
         Me.CBBuff.Name = "CBBuff"
-        Me.CBBuff.Size = New System.Drawing.Size(87, 21)
+        Me.CBBuff.Size = New System.Drawing.Size(83, 21)
         Me.CBBuff.TabIndex = 11
         '
         'CMDLoad
@@ -230,17 +230,18 @@ Partial Class Config
         'LBLAttackLoops
         '
         Me.LBLAttackLoops.AutoSize = True
-        Me.LBLAttackLoops.Location = New System.Drawing.Point(113, 52)
+        Me.LBLAttackLoops.Location = New System.Drawing.Point(279, 52)
         Me.LBLAttackLoops.Name = "LBLAttackLoops"
-        Me.LBLAttackLoops.Size = New System.Drawing.Size(69, 13)
+        Me.LBLAttackLoops.Size = New System.Drawing.Size(123, 13)
         Me.LBLAttackLoops.TabIndex = 28
-        Me.LBLAttackLoops.Text = "Attack loops:"
+        Me.LBLAttackLoops.Text = "Attack loops untill rebuff:"
         '
         'TBAttackLoops
         '
-        Me.TBAttackLoops.Location = New System.Drawing.Point(188, 49)
+        Me.TBAttackLoops.Enabled = False
+        Me.TBAttackLoops.Location = New System.Drawing.Point(408, 49)
         Me.TBAttackLoops.Name = "TBAttackLoops"
-        Me.TBAttackLoops.Size = New System.Drawing.Size(83, 20)
+        Me.TBAttackLoops.Size = New System.Drawing.Size(87, 20)
         Me.TBAttackLoops.TabIndex = 29
         '
         'Panel

@@ -26,6 +26,7 @@ Public Class Config
                         CBAttackBar.Text = sr.ReadLine
                         TBAttackTime.Text = sr.ReadLine
                         'Buff Config
+                        TBAttackLoops.Text = sr.ReadLine
                         CBBuff.Text = sr.ReadLine
                         CBBuffBar.Text = sr.ReadLine
                         TBBuffTime.Text = sr.ReadLine
@@ -79,6 +80,7 @@ Public Class Config
                     sw.WriteLine(String.Join(";", CBAttackBar.Text))
                     sw.WriteLine(String.Join(";", TBAttackTime.Text))
                     'Buff
+                    sw.WriteLine(String.Join(";", TBAttackLoops.Text))
                     sw.WriteLine(String.Join(";", CBBuff.Text))
                     sw.WriteLine(String.Join(";", CBBuffBar.Text))
                     sw.WriteLine(String.Join(";", TBBuffTime.Text))
@@ -117,6 +119,7 @@ Public Class Config
             CBAttackBar.Enabled = True
             TBAttackTime.Enabled = True
             'Buff
+            TBAttackLoops.Enabled = True
             CBBuff.Enabled = True
             CBBuffBar.Enabled = True
             TBBuffTime.Enabled = True
@@ -125,10 +128,28 @@ Public Class Config
             CBAttackBar.Enabled = False
             TBAttackTime.Enabled = True
             'Buff
+            TBAttackLoops.Enabled = False
             CBBuff.Enabled = True
             CBBuffBar.Enabled = False
             TBBuffTime.Enabled = False
         End If
     End Sub
 
+    Private Sub TBAttackTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBAttackTime.KeyPress
+        If Not IsNumeric(e.KeyChar) And Not e.KeyChar = ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TBAttackLoops_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBAttackLoops.KeyPress
+        If Not IsNumeric(e.KeyChar) And Not e.KeyChar = ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub TBBuffTime_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TBBuffTime.KeyPress
+        If Not IsNumeric(e.KeyChar) And Not e.KeyChar = ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
+    End Sub
 End Class

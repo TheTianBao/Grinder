@@ -4,16 +4,46 @@ Imports System.IO
 Public Class Grinder
     Public iRun As Integer
     Public FRMConfig As New Config
-    Public FRMHELP As New About
     Private Sub cmdStart_Click(sender As Object, e As EventArgs) Handles CMDStart.Click
 
         Dim iRebuffValue As Integer
         Dim iCountdown As Integer
-        Dim Setupcheck As Boolean
+        Dim CheckAttackKeys As Boolean = False
+        Dim CheckBuffKeys As Boolean = False
 
+        'Check for AttackTime
+        If FRMConfig.TBAttackTime.Text = "" Then
+            MsgBox("Please check the configuration. AttackTime is not set correctly. Default set to 500ms.")
+            FRMConfig.TBAttackTime.Text = 500
+            Exit Sub
+        End If
 
-        If FRMConfig.TBAttackLoops.Text = "" Or FRMConfig.TBAttackTime.Text = "" Then
-            MsgBox("Please check the configuration. Attackloops or time beteween attacks is invaild.")
+        'Check for AttackKeys need to set at least one
+        For i = 0 To FRMConfig.CLBAttack.Items.Count - 1
+            If FRMConfig.CLBAttack.GetItemCheckState(i).ToString = "Checked" Then
+                CheckAttackKeys = True
+            End If
+        Next
+        If CheckAttackKeys = False Then
+            MsgBox("Please check the configuration. You need to select at least 1 Attack Key.")
+            Exit Sub
+        End If
+
+        'Check for BuffTime if Rebuff is used
+        If FRMConfig.CBBuff.Text = "Yes" And FRMConfig.TBAttackLoops.Text = "" Then
+            MsgBox("Please check the configuration. Time between buffs is not set correctly.Default set to 5000ms.")
+            FRMConfig.CBBuff.Text = 5000
+            Exit Sub
+        End If
+
+        'Check for AttackKeys need to set at least one
+        For i = 0 To FRMConfig.CLBBuff.Items.Count - 1
+            If FRMConfig.CLBBuff.GetItemCheckState(i).ToString = "Checked" Then
+                CheckBuffKeys = True
+            End If
+        Next
+        If CheckBuffKeys = False Then
+            MsgBox("Please check the configuration. You need to select at least 1 Buff Key while using Rebuff mode.")
             Exit Sub
         End If
 
@@ -79,6 +109,7 @@ Public Class Grinder
 
         iSleep = CInt(FRMConfig.TBAttackTime.Text)
 
+
         If FRMConfig.CLBAttack.GetItemChecked(1) = True Then
             SendKeys.SendWait("1")
             Threading.Thread.CurrentThread.Sleep(iSleep)
@@ -132,11 +163,16 @@ Public Class Grinder
         End If
 
         Threading.Thread.CurrentThread.Sleep(500)
+
     End Sub
     'Do the Rebuff
     Private Sub Rebuff()
         Dim iSleep As Integer
         iSleep = CInt(FRMConfig.TBBuffTime.Text)
+
+
+
+        SendKeys.Send("{" + FRMConfig.CBBuffBar.Text + "}")
 
         If FRMConfig.CLBBuff.GetItemChecked(1) = True Then
             SendKeys.SendWait("1")
@@ -205,20 +241,16 @@ Public Class Grinder
 
     Private Sub CMS_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles CMS.ItemClicked
 
-        If e.ClickedItem.Text = "About Grinder" Then
-            FRMHELP.Show()
-        End If
 
         If e.ClickedItem.Text = "Open Configuration" Then
-
             FRMConfig.ShowDialog()
         End If
 
-        If e.ClickedItem.Text = "GitHub" Then
+        If e.ClickedItem.Text = "Open GitHub" Then
             Process.Start("https://github.com/TheTianBao/Grinder")
         End If
 
-        If e.ClickedItem.Text = "Donate" Then
+        If e.ClickedItem.Text = "Donate for Grinder" Then
             Process.Start("https://www.paypal.com/pools/c/8lu4vqskG6")
         End If
 
@@ -234,6 +266,8 @@ Public Class Grinder
     End Sub
 
     Private Sub CMDHelp_Click(sender As Object, e As EventArgs) Handles CMDHelp.Click
-        Me.CMS.Show()
+        Me.CMS.Show(Control.MousePosition)
     End Sub
+
+
 End Class

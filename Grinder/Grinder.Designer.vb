@@ -26,11 +26,10 @@ Partial Class Grinder
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Grinder))
         Me.lblStatus = New System.Windows.Forms.Label()
         Me.CMS = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.About = New System.Windows.Forms.ToolStripMenuItem()
         Me.Config = New System.Windows.Forms.ToolStripMenuItem()
         Me.GitHub = New System.Windows.Forms.ToolStripMenuItem()
         Me.Donate = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.CMDHelp = New System.Windows.Forms.Button()
         Me.CMDStart = New System.Windows.Forms.Button()
         Me.CMDMenu = New System.Windows.Forms.Button()
@@ -52,25 +51,9 @@ Partial Class Grinder
         '
         'CMS
         '
-        Me.CMS.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.About, Me.Config, Me.GitHub, Me.Donate})
+        Me.CMS.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Config, Me.GitHub, Me.Donate})
         Me.CMS.Name = "CMS"
-        Me.CMS.Size = New System.Drawing.Size(181, 92)
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 7)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(50, 18)
-        Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Status:"
-        '
-        'About
-        '
-        Me.About.Image = Global.Grinder.My.Resources.Resources.Help
-        Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(180, 22)
-        Me.About.Text = "About Grinder"
+        Me.CMS.Size = New System.Drawing.Size(181, 70)
         '
         'Config
         '
@@ -84,14 +67,23 @@ Partial Class Grinder
         Me.GitHub.Image = Global.Grinder.My.Resources.Resources.GitHub1
         Me.GitHub.Name = "GitHub"
         Me.GitHub.Size = New System.Drawing.Size(180, 22)
-        Me.GitHub.Text = "GitHub"
+        Me.GitHub.Text = "Open GitHub"
         '
         'Donate
         '
         Me.Donate.Image = Global.Grinder.My.Resources.Resources.Donation
         Me.Donate.Name = "Donate"
         Me.Donate.Size = New System.Drawing.Size(180, 22)
-        Me.Donate.Text = "Donate"
+        Me.Donate.Text = "Donate for Grinder"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 7)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(50, 18)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Status:"
         '
         'CMDHelp
         '
@@ -175,7 +167,6 @@ Partial Class Grinder
     Friend WithEvents CMDMenu As Button
     Friend WithEvents lblStatus As Label
     Friend WithEvents CMS As ContextMenuStrip
-    Friend WithEvents About As ToolStripMenuItem
     Friend WithEvents Config As ToolStripMenuItem
     Friend WithEvents GitHub As ToolStripMenuItem
     Friend WithEvents Donate As ToolStripMenuItem
