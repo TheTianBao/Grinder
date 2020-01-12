@@ -42,7 +42,7 @@ Public Class Grinder
                 CheckBuffKeys = True
             End If
         Next
-        If CheckBuffKeys = False Then
+        If FRMConfig.CBBuff.Text = "Yes" And CheckBuffKeys = False Then
             MsgBox("Please check the configuration. You need to select at least 1 Buff Key while using Rebuff mode.")
             Exit Sub
         End If
