@@ -33,6 +33,7 @@ Partial Class Grinder
         Me.CMDHelp = New System.Windows.Forms.Button()
         Me.CMDStart = New System.Windows.Forms.Button()
         Me.CMDMenu = New System.Windows.Forms.Button()
+        Me.CMDRunClient = New System.Windows.Forms.Button()
         Me.CMS.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -133,14 +134,31 @@ Partial Class Grinder
         Me.CMDMenu.TabIndex = 91
         Me.CMDMenu.UseVisualStyleBackColor = False
         '
+        'CMDRunClient
+        '
+        Me.CMDRunClient.BackColor = System.Drawing.Color.White
+        Me.CMDRunClient.BackgroundImage = Global.Grinder.My.Resources.Resources.Start
+        Me.CMDRunClient.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CMDRunClient.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CMDRunClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CMDRunClient.Font = New System.Drawing.Font("Trebuchet MS", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CMDRunClient.ForeColor = System.Drawing.Color.Black
+        Me.CMDRunClient.Location = New System.Drawing.Point(173, 29)
+        Me.CMDRunClient.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.CMDRunClient.Name = "CMDRunClient"
+        Me.CMDRunClient.Size = New System.Drawing.Size(50, 50)
+        Me.CMDRunClient.TabIndex = 93
+        Me.CMDRunClient.UseVisualStyleBackColor = False
+        '
         'Grinder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(175, 88)
+        Me.ClientSize = New System.Drawing.Size(231, 88)
         Me.ContextMenuStrip = Me.CMS
+        Me.Controls.Add(Me.CMDRunClient)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.lblStatus)
         Me.Controls.Add(Me.CMDHelp)
@@ -171,4 +189,5 @@ Partial Class Grinder
     Friend WithEvents GitHub As ToolStripMenuItem
     Friend WithEvents Donate As ToolStripMenuItem
     Friend WithEvents Label1 As Label
+    Friend WithEvents CMDRunClient As Button
 End Class

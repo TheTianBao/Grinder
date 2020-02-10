@@ -4,6 +4,14 @@ Imports System.IO
 Public Class Grinder
     Public iRun As Integer
     Public FRMConfig As New Config
+
+    'NewStuff
+    Dim Tm As New Timer
+    Private Declare Auto Function FindWindow Lib "user32" (ByVal lpClassName As String, ByVal lpWindowName As String) As IntPtr
+    Private Declare Auto Function PostMessage Lib "USER32.DLL" (ByVal hWnd As IntPtr, ByVal Msg As Integer, ByVal wParam As IntPtr, ByVal lParam As IntPtr) As Boolean
+    Private Const MK_LBUTTON = &H1
+    Private Const WM_LBUTTONDOWN = &H201
+
     Private Sub cmdStart_Click(sender As Object, e As EventArgs) Handles CMDStart.Click
 
         Dim iRebuffValue As Integer
@@ -57,13 +65,6 @@ Public Class Grinder
                 Exit Sub
             End Try
         End If
-
-        'Start
-        Try
-            AppActivate("Origin")
-        Catch ex As Exception
-
-        End Try
 
         Me.lblStatus.ForeColor = Color.Green
         Me.lblStatus.Text = "Running"
@@ -196,6 +197,7 @@ Public Class Grinder
 
         If FRMConfig.CLBBuff.GetItemChecked(5) Then
             SendKeys.SendWait("5")
+
             Threading.Thread.CurrentThread.Sleep(iSleep)
         End If
 
@@ -268,6 +270,17 @@ Public Class Grinder
     Private Sub CMDHelp_Click(sender As Object, e As EventArgs) Handles CMDHelp.Click
         Me.CMS.Show(Control.MousePosition)
     End Sub
+
+    Private Sub CMDRunClient_Click(sender As Object, e As EventArgs) Handles CMDRunClient.Click
+        ' ("C:\Program Files (x86)\Origin Online\Launcher.exe")
+
+        Dim whnd As IntPtr = FindWindow(vbNullString, "untitled - notepad")
+        PostMessage(whnd, WM_LBUTTONDOWN, MK_LBUTTON, 30)
+
+    End Sub
+
+
+
 
 
 End Class
